@@ -5,7 +5,7 @@ import { hello } from './src/functions';
 
 const serverlessConfiguration: AWS = {
   service: 'serverless-typescript',
-  frameworkVersion: '2',
+  frameworkVersion: '3',
   useDotenv: true,
   custom: {
     webpack: {
@@ -14,7 +14,7 @@ const serverlessConfiguration: AWS = {
       packager: 'yarn',
     },
     stage: '${opt:stage, self:provider.stage}',
-    stages: ['staging', 'production'],
+    stages: ['dev', 'production'],
     prune: {
       automatic: true,
       number: 3,
@@ -58,7 +58,7 @@ const serverlessConfiguration: AWS = {
   ],
   provider: {
     name: 'aws',
-    runtime: 'nodejs14.x',
+    runtime: 'nodejs18.x',
     iamRoleStatements: [
       {
         Effect: 'Allow',
